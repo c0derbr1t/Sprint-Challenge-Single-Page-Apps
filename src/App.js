@@ -3,12 +3,12 @@ import { Route, Switch } from 'react-router-dom';
 import Header from "./components/Header.js";
 import WelcomePage from "./components/WelcomePage";
 import CharacterList from './components/CharacterList';
-
+import { Page }  from './components/Styles';
 
 
 export default function App() {
   return (
-    <main>
+    <Page>
       <Header />
       <Switch>
         <Route path='/CharacterList'>
@@ -18,7 +18,6 @@ export default function App() {
           <WelcomePage />
         </Route>
       </Switch>
-      {/* <WelcomePage /> */}
-    </main>
+    </Page>
   );
 }

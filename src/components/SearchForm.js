@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CharacterCard from './CharacterCard';
+import { ListSection, ListDiv, Card, SearchH3, SearchBox } from './Styles';
 
 export default function SearchForm({characters}) {
 
@@ -19,16 +20,22 @@ export default function SearchForm({characters}) {
   }, [searchTerm]);
  
   return (
-    <section className="search-form">
-      <input
+    <ListSection className="search-form">
+      <SearchH3>Search for your favorite Character by Name!</SearchH3>
+      <SearchBox
         type='text'
-        placeholder='Search By Name'
+        placeholder='🔎 Start typing...'
         value={searchTerm}
         onChange={handleChange}
       />
+
+      <ListDiv>
       {searchResults.map(item => (
-        <CharacterCard key={item.id} character={item} />
+        <Card>
+          <CharacterCard key={item.id} character={item} />
+        </Card>
       ))}
-    </section>
+      </ListDiv>
+    </ListSection>
   );
 }

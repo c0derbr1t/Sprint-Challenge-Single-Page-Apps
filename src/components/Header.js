@@ -1,15 +1,17 @@
 import React from "react";
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
+import { MainNav, MainLinks, HeaderH1 } from './Styles';
+
 
 export default function Header() {
   return (
     <header className="ui centered">
-      <h1 className="ui center">Rick &amp; Morty Fan Page</h1>
+      <HeaderH1 className="ui center">Rick &amp; Morty Fan Page</HeaderH1>
 
-      <div>
-        <NavLink exact to={"/"}>Welcome!</NavLink>
-        <NavLink to={"/CharacterList"}>Characters!</NavLink>
-      </div>
+      <MainNav>
+        <MainLinks exact to={"/"}>Welcome!</MainLinks>
+        <MainLinks to={"/CharacterList"}>Characters!</MainLinks>
+      </MainNav>
     </header>
   );
 }

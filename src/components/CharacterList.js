@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Switch, Route, NavLink } from 'react-router-dom';
 import axios from 'axios';
 import CharacterCard from './CharacterCard';
 import SearchForm from './SearchForm';
+import { ListSection, NavDiv, ListDiv, ListLinks, Card } from './Styles';
 
 export default function CharacterList(props) {
   // TODO: Add useState to track data from useEffect
@@ -26,11 +28,26 @@ export default function CharacterList(props) {
 console.log(characters);
 
   return (
-    <section className="character-list">
-      <SearchForm characters={characters}/>
-      {characters.map(char => (
-        <CharacterCard key={char.id} character={char} />
-      ))}
-    </section>
+    <ListSection className="character-list">
+      <NavDiv>
+        <ListLinks to={"/CharacterList/SearchForm"}>Find your Favorites</ListLinks>
+        <ListLinks to={"/CharacterList"}>All of the Characters</ListLinks>
+      </NavDiv>
+
+      <Switch>
+        <Route path="/CharacterList/SearchForm">
+          <SearchForm characters={characters} />
+        </Route>
+        <Route path="/CharacterList">
+          <ListDiv>
+            {characters.map(char => (
+              <Card>
+               <CharacterCard key={char.id} character={char} />
+              </Card>
+            ))}
+          </ListDiv>
+        </Route>
+      </Switch> 
+    </ListSection>
   );
 }
