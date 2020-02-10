@@ -27,7 +27,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ]  Explain benefit(s) using `client-side routing`?
 
-> Answer:
+> Answer:  Your users will have a richer web experience. They get the appearance of normal multi-page websites, without the wait for a response from the server. It is more efficient.
 
 ## Project Set Up
 
